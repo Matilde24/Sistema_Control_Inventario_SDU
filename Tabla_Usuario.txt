@@ -1,0 +1,7 @@
+create table Usuarios
+(ID_Usuario int identity(1,1) primary key not null,
+Nombres varchar(50)not null,
+usuario varchar (50),
+Contraseña varchar(50)not null,
+tipo_usuario varchar(50)not null,
+)
