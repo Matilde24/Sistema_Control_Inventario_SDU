@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace Form_SDU
+{
+    class Conexion
+    {
+       
+        string cadena = "Data source=DESKTOP-77UN3AS;Initial Catalog=Sistema_Control_Inventario_SDU; Integrated Security=True";
+        
+        public SqlConnection conectarbd = new SqlConnection(); 
+        
+        public Conexion()
+        {
+            conectarbd.ConnectionString = cadena; 
+        }
+
+        
+        public void abrir()
+        { 
+            try
+            {   
+                conectarbd.Open();
+                Console.WriteLine("Conexión abierta ");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al abrir BD " + ex.Message);
+            }
+        }
+       
+        public void cerrar()
+        {
+            conectarbd.Close();
+        }
+    }
+}
